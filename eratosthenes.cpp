@@ -14,3 +14,17 @@ int eratosthenes(int k){
     }
     return (int)prime.size();
 }
+
+void eratosthenes2(int k){
+    is_prime.resize(k+1, 1);
+    is_prime[0] = false;
+    is_prime[1] = false;
+    for(int i=2; i*i<=k; i++){
+        if(is_prime[i]){
+            for(int j=i*i; j<=k; j+=i){
+                is_prime[j] = false;
+            }
+        }
+    }
+    return;
+}
